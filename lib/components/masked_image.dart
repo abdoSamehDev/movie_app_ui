@@ -7,7 +7,7 @@ class MaskedImage extends StatelessWidget {
   final String? asset;
   final String? mask;
 
-  const MaskedImage({Key? key, @required this.asset, @required this.mask})
+  const MaskedImage({Key? key, required this.asset, required this.mask})
       : super(key: key);
 
   @override

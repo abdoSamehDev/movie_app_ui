@@ -3,6 +3,7 @@ import 'dart:ui';
 import 'package:flutter/material.dart';
 import 'package:movie_ui/components/custom_outline.dart';
 import 'package:movie_ui/constants.dart';
+import 'package:movie_ui/screens/home_screen.dart';
 
 class OnBoardingScreen extends StatelessWidget {
   const OnBoardingScreen({super.key});
@@ -13,7 +14,7 @@ class OnBoardingScreen extends StatelessWidget {
     final screenWidth = MediaQuery.of(context).size.width;
     return Scaffold(
         backgroundColor: Constants.kBlackColor,
-        body: Container(
+        body: SizedBox(
           width: screenWidth,
           height: screenHeight,
           child: Stack(
@@ -115,41 +116,50 @@ class OnBoardingScreen extends StatelessWidget {
                       SizedBox(
                         height: screenWidth * 0.25,
                       ),
-                      CustomOutline(
-                        strokeWidth: 3,
-                        radius: 20,
-                        gradient: const LinearGradient(
-                          begin: Alignment.topLeft,
-                          end: Alignment.bottomRight,
-                          colors: [
-                            Constants.kPinkColor,
-                            Constants.kGreenColor,
-                          ],
-                        ),
-                        width: 160,
-                        height: 38,
-                        padding: const EdgeInsets.all(3),
-                        child: Container(
-                          decoration: BoxDecoration(
-                            // shape: BoxShape.rectangle,
-                            borderRadius: BorderRadius.circular(20),
-                            gradient: LinearGradient(
-                              begin: Alignment.topLeft,
-                              end: Alignment.bottomRight,
-                              colors: [
-                                Constants.kPinkColor.withOpacity(0.15),
-                                Constants.kGreenColor.withOpacity(0.15),
-                              ],
-                            ),
+                      GestureDetector(
+                        onTap: () {
+                          Navigator.push(context,
+                              MaterialPageRoute(builder: (context) {
+                            return const HomeScreen();
+                          }));
+                        },
+                        child: CustomOutline(
+                          strokeWidth: 3,
+                          radius: 20,
+                          gradient: const LinearGradient(
+                            begin: Alignment.topLeft,
+                            end: Alignment.bottomRight,
+                            colors: [
+                              Constants.kPinkColor,
+                              Constants.kGreenColor,
+                            ],
                           ),
-                          child: Center(
-                            child: Text(
-                              "Sign Up",
-                              textAlign: TextAlign.center,
-                              style: TextStyle(
-                                color: Constants.kWhiteColor.withOpacity(0.75),
-                                fontSize: screenHeight <= 660 ? 11 : 14,
-                                fontWeight: FontWeight.w700,
+                          width: 160,
+                          height: 38,
+                          padding: const EdgeInsets.all(3),
+                          child: Container(
+                            decoration: BoxDecoration(
+                              // shape: BoxShape.rectangle,
+                              borderRadius: BorderRadius.circular(20),
+                              gradient: LinearGradient(
+                                begin: Alignment.topLeft,
+                                end: Alignment.bottomRight,
+                                colors: [
+                                  Constants.kPinkColor.withOpacity(0.15),
+                                  Constants.kGreenColor.withOpacity(0.15),
+                                ],
+                              ),
+                            ),
+                            child: Center(
+                              child: Text(
+                                "Sign Up",
+                                textAlign: TextAlign.center,
+                                style: TextStyle(
+                                  color:
+                                      Constants.kWhiteColor.withOpacity(0.75),
+                                  fontSize: screenHeight <= 660 ? 11 : 14,
+                                  fontWeight: FontWeight.w700,
+                                ),
                               ),
                             ),
                           ),
