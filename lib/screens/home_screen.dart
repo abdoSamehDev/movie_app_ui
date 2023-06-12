@@ -7,6 +7,7 @@ import 'package:movie_ui/components/masked_image.dart';
 import 'package:movie_ui/components/search_widget.dart';
 import 'package:movie_ui/constants.dart';
 import 'package:movie_ui/models/movie.dart';
+import 'package:movie_ui/screens/movie_details.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
@@ -132,7 +133,12 @@ class HomeScreen extends StatelessWidget {
                               mask = Constants.kMaskCenter;
                             }
                             return GestureDetector(
-                              onTap: () {},
+                              onTap: () {
+                                Navigator.push(context,
+                                    MaterialPageRoute(builder: (context) {
+                                  return const MovieDetailsScreen();
+                                }));
+                              },
                               child: Container(
                                 color: Colors.transparent,
                                 margin: const EdgeInsets.only(left: 20),
@@ -179,7 +185,12 @@ class HomeScreen extends StatelessWidget {
                               mask = Constants.kMaskCenter;
                             }
                             return GestureDetector(
-                              onTap: () {},
+                              onTap: () {
+                                Navigator.push(context,
+                                    MaterialPageRoute(builder: (context) {
+                                  return const MovieDetailsScreen();
+                                }));
+                              },
                               child: Container(
                                 color: Colors.transparent,
                                 margin: const EdgeInsets.only(left: 20),
